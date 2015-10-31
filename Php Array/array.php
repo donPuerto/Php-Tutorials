@@ -10,7 +10,12 @@ Multidimensional arrays - Arrays containing one or more arrays
 
 Breaking Line
 "\n" => use double quote not single quote
-echo "<br/>"
+echo "<br/>" => can be use only in HTML
+
+Declaration Type:
+a) $array = (); //backward compatible to any version
+b) $array = []; //support 5.4 +
+
 */
 
 
@@ -76,7 +81,6 @@ $age['Ben'] = "37";
 $age['Joe'] = "43";
 */
 
-
 echo "*** Accessing Array ****" . "\n\n";
 
 echo $age['Peter'] . "\n";
@@ -89,6 +93,114 @@ foreach ($age as $key => $ages) {
 	echo $key  ."=>" . $ages . "\n";
 }
 
+/*
+Result
+Peter=>35
+Ben=>37
+Joe=>43
+
+*/
+
 echo "\n\n=====================================================\n";
 echo "PHP 5 Multidimensional Arrays\n";
+echo "=====================================================\n\n";
+
+$cars = array
+  (
+	  array("Volvo     ",22,18),
+	  array("BMW       ",15,13),
+	  array("Saab      ",'05','02'),
+	  array("Land Rover",17,15)
+  );
+
+  echo "*** Accessing Array ****" . "\n\n";
+
+  /*key 0*/
+  echo $cars[0][0] . "\n";
+  echo $cars[0][1] . "\n";
+  echo $cars[0][2] . "\n\n";
+  /*
+  Result:
+  Volvo
+  22
+  18
+  */
+
+
+  /*key 1*/
+  echo $cars[1][0] . "\n";
+  echo $cars[1][1] . "\n";
+  echo $cars[1][2] . "\n\n";
+  /*
+  Result:
+  BMW
+  15
+  13
+  */
+
+  /*key 2*/
+  echo $cars[2][0] . "\n";
+  echo $cars[2][1] . "\n";
+  echo $cars[2][2] . "\n\n";
+  /*
+  Result:
+  Saab
+  5
+  2
+  */
+
+  /*key 3*/
+  echo $cars[3][0] . "\n";
+  echo $cars[3][1] . "\n";
+  echo $cars[3][2] . "\n\n";
+  /*
+  Land Rover
+  17
+  15
+  */
+ 
+ echo "\nAccessing Array in for loop and display as table style\n";
+
+ for ($row = 0; $row < count($cars); $row++) {
+ 	  echo "\n";
+	  for ($col = 0; $col < 3; $col++) {
+	    echo $cars[$row][$col]. "  |  ";
+	  }
+  
+}
+
+
+echo "\n\n=====================================================\n";
+echo "Using print_r() and var_dump()\n";
+echo "=====================================================\n\n";
+
+echo "print_r()";
+echo "\n";
+print_r($cars);
+/*
+Result:
+Array
+(
+    [0] => volvo
+    [1] => BMW
+    [2] => Toyota
+)
+*/
+
+echo "\n\nprint_r()\n";
+var_dump($cars);
+
+
+echo "\n\n=====================================================\n";
+echo "
+note:
+The cleaner way to print on screen is to enclose on 'pre tag' 
+<pre>
+  var_dump(expression);	
+</pre>
+referrence:
+http://laraveldaily.com/echoing-dd-vs-var_dump-vs-print_r/
+
+\n";
+
 echo "=====================================================\n\n";
