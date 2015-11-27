@@ -33,14 +33,14 @@ class MainStaticClass{
 
 
 	public function MainStaticMethod(){
-		return self::$MainPublicProperty .PHP_EOL. PHP_EOL; 
+		return self::$MainPublicProperty; 
 	}
 
 
 }
 
 
-class SubStaticClass{
+class SubStaticClass extends MainStaticClass{
 
 	public static function SubStaticMethod(){
 
@@ -52,12 +52,12 @@ class SubStaticClass{
 
 
 
-echo MainStaticClass::$MainPublicProperty;
-echo (new MainStaticClass)->MainStaticMethod();
+echo MainStaticClass::$MainPublicProperty." using Scope Operator".PHP_EOL;
+echo (new MainStaticClass)->MainStaticMethod()." using instantiated class".PHP_EOL;
 
 
-echo SubStaticClass::$MainPublicProperty;
-//SubStaticClass::SubMethod();
+echo SubStaticClass::$MainPublicProperty." call the property on the SubClass".PHP_EOL;
+echo SubStaticClass::SubStaticMethod()." call the method on the SubClass";
 
 
 
