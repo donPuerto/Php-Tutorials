@@ -47,7 +47,7 @@ echo PHP_EOL . PHP_EOL;
 
 
 
-//Example#2
+//Example# 2: 1st method was override by the 2nd method 
 Class MainClassOverride{
 
 	public static function OverrideMethod(){

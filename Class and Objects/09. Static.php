@@ -21,8 +21,13 @@ class StaticClass{
 
 }
 
+// Calling Static Clasee
 StaticClass::StaticMethod();
 
+
+
+
+//**************************************************************
 
 
 
@@ -51,7 +56,7 @@ class SubStaticClass extends MainStaticClass{
 }
 
 
-
+//calling static method and property
 echo MainStaticClass::$MainPublicProperty." using Scope Operator".PHP_EOL;
 echo (new MainStaticClass)->MainStaticMethod()." using instantiated class".PHP_EOL;
 
